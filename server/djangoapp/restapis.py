@@ -2,6 +2,13 @@
 # import requests
 import os
 from dotenv import load_dotenv
+import requests
+
+def get_request(endpoint):
+    backend_url = os.getenv("BACKEND_URL")
+    full_url = backend_url + endpoint
+    response = requests.get(full_url)
+    return response.json()
 
 load_dotenv()
 
